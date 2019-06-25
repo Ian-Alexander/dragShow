@@ -1,9 +1,21 @@
-// Bussiness End Logic
+// Bussiness End Logic for Address Book
 
 function AddressBook() {
   this.contacts = []
   this.currentId = 0
 }
+
+AddressBook.prototype.addContact = function(contact) {
+    contact.id = this.assignId();
+    return this.contacts.push(contact);
+}
+
+AddressBook.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
+}
+
+//Bussiness End Logic for Contacts
 
 function Contact(firstName, lastName, phoneNumber, address) {
   this.firstName = firstName;
@@ -12,15 +24,12 @@ function Contact(firstName, lastName, phoneNumber, address) {
   this.address = address;
 }
 
-// User Interface Logic
-
 Contact.prototype.fullName = function() {
     return this.firstName + " " + this.lastName;
 }
 
-AddressBook.prototype.addContact = function(contact) {
-    return this.contacts.push(contact);
-}
+
+// User Interface Logic
 
 var addressBook = new AddressBook();
 var contact = new Contact("Ada", "Lovelace", "503-555-0100");
