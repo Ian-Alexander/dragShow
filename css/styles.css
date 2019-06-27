@@ -1,0 +1,30 @@
+.container {
+    font-family: Priyati;
+    color: white;
+    font-size: 200%;
+}
+
+body {
+    background: #330066;
+}
+
+.jumbotron {
+  text-align: center;
+
+  font-weight: bold;
+  background: #cc99ff;
+  color: #330066;
+}
+
+h2 {
+  padding-top: 10pt;
+  padding-bottom: 10pt;
+}
+
+h1 {
+  padding-top: 20pt;
+}
+
+input {
+  margin: 15px;
+}
