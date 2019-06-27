@@ -50,18 +50,18 @@ Contact.prototype.fullName = function() {
 
 
 // User Interface Logic
-var addressBook = new AddressBook();
+var myAddressBook = new AddressBook();
 
 function displayContactDetails(addressBookToDisplay) {
   var contactsList = $("ul#contacts");
   var htmlForContactInfo = "";
   addressBookToDisplay.contacts.forEach(function(contact) {
-    htmlForContactInfo += "<li id=" + contact.id + contact.firstName + " " + contact.lastName + "</li>";
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
   });
   contactsList.html(htmlForContactInfo);
 };
 
-$(document.ready(function() {
+$(document).ready(function() {
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
     var inputtedFirstName = $("input#new-first-name").val();
@@ -69,8 +69,8 @@ $(document.ready(function() {
     var inputtedPhoneNumber = $("input#new-phone-number").val();
     var inputtedAddress = $("input#new-address").val();
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedAddress);
-    addressBook.addContact(newContact);
-    displayContactDetails(addressBook);
+    myAddressBook.addContact(newContact);
+    displayContactDetails(myAddressBook);
   })
 })
 
