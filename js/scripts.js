@@ -50,16 +50,42 @@ Contact.prototype.fullName = function() {
 
 
 // User Interface Logic
-
 var addressBook = new AddressBook();
-var contact = new Contact("Ada", "Lovelace", "503-555-0100");
-var contact2 = new Contact("Grace", "Hopper", "503-555-0199");
-var contact3 = new Contact("Charles", "Gnarles", "503-256-2810");
-var contact4 = new Contact("Snooty", "Booty", "503-256-2800");
-var contact5 = new Contact("Richardo", "Bacardi", "503-250-2810");
 
-addressBook.addContact(contact);
-addressBook.addContact(contact2);
-addressBook.addContact(contact3);
-addressBook.addContact(contact4);
-addressBook.addContact(contact5);
+function displayContactDetails(addressBookToDisplay) {
+  var contactsList = $("ul#contacts");
+  var htmlForContactInfo = "";
+  addressBookToDisplay.contacts.forEach(function(contact) {
+    htmlForContactInfo += "<li id=" + contact.id + contact.firstName + " " + contact.lastName + "</li>";
+  });
+  contactsList.html(htmlForContactInfo);
+};
+
+$(document.ready(function() {
+  $("form#new-contact").submit(function(event) {
+    event.preventDefault();
+    var inputtedFirstName = $("input#new-first-name").val();
+    var inputtedLastName = $("input#new-last-name").val();
+    var inputtedPhoneNumber = $("input#new-phone-number").val();
+    var inputtedAddress = $("input#new-address").val();
+    var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedAddress);
+    addressBook.addContact(newContact);
+    console.log(addressBook.contacts);
+  })
+})
+
+
+
+
+// var addressBook = new AddressBook();
+// var contact = new Contact("Ada", "Lovelace", "503-555-0100");
+// var contact2 = new Contact("Grace", "Hopper", "503-555-0199");
+// var contact3 = new Contact("Charles", "Gnarles", "503-256-2810");
+// var contact4 = new Contact("Snooty", "Booty", "503-256-2800");
+// var contact5 = new Contact("Richardo", "Bacardi", "503-250-2810");
+//
+// addressBook.addContact(contact);
+// addressBook.addContact(contact2);
+// addressBook.addContact(contact3);
+// addressBook.addContact(contact4);
+// addressBook.addContact(contact5);

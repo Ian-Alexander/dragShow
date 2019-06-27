@@ -10,10 +10,12 @@ body {
 
 .jumbotron {
   text-align: center;
-
   font-weight: bold;
   background: #cc99ff;
   color: #330066;
+  border-style: double;
+  border-color: white;
+  border-spacing: 5px;
 }
 
 h2 {
@@ -22,9 +24,16 @@ h2 {
 }
 
 h1 {
-  padding-top: 20pt;
+  padding-top: 5pt;
+  font-size: 400%;
 }
 
-input {
+.flex-container {
+  display: flex;
   margin: 15px;
+  align-items: flex-end;
+}
+
+#show-contact {
+  display: none;
 }
