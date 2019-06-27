@@ -70,7 +70,7 @@ $(document.ready(function() {
     var inputtedAddress = $("input#new-address").val();
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedAddress);
     addressBook.addContact(newContact);
-    console.log(addressBook.contacts);
+    displayContactDetails(addressBook);
   })
 })
 
