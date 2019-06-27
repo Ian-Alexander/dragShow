@@ -48,6 +48,11 @@ Contact.prototype.fullName = function() {
     return this.firstName + " " + this.lastName;
 }
 
+function attachContactListeners() {
+  $("ul#contacts").on("click", "li", function() {
+    console.log("The id of this <li> is " + this.id + ".");
+});
+};
 
 // User Interface Logic
 var myAddressBook = new AddressBook();
@@ -61,7 +66,9 @@ function displayContactDetails(addressBookToDisplay) {
   contactsList.html(htmlForContactInfo);
 };
 
+
 $(document).ready(function() {
+  attachContactListeners();
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
     var inputtedFirstName = $("input#new-first-name").val();
@@ -71,8 +78,8 @@ $(document).ready(function() {
     var newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedAddress);
     myAddressBook.addContact(newContact);
     displayContactDetails(myAddressBook);
-  })
-})
+  });
+});
 
 
 
